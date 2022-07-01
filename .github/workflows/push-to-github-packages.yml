@@ -30,7 +30,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64
-          file: ./.docker/php-nginx/prod/Dockerfile
           push: true
-          tags: ghcr.io/iteaoffice/main/app:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
